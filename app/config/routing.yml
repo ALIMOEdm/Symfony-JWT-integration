@@ -1,0 +1,10 @@
+#
+# First versions of api.
+#
+api_v1:
+    resource: 'routing_api_v1.yml'
+    prefix: /api/v1
+
+auth:
+    resource: '@AuthenticationBundle/Controller'
+    prefix: /api
