@@ -2,9 +2,13 @@
 # First versions of api.
 #
 api_v1:
-    resource: 'routing_api_v1.yml'
+    resource: '@AppBundle/Resources/config/routing/v1.yml'
     prefix: /api/v1
 
+app:
+    resource: '@AppBundle/Controller/IndexController.php'
+    type: annotation
+
 auth:
-    resource: '@AuthenticationBundle/Controller'
-    prefix: /api
+    resource: 'routing_security.yml'
+    prefix: /security

@@ -25,15 +25,15 @@ class TokenController extends Controller
     {
         /** @var User $user */
         $user = $this->getDoctrine()
-            ->getRepository('AppBundle:User')
-            ->findOneBy(['username' => $request->getUser()]);
+            ->getRepository(User::class)
+            ->findOneBy(['username' => $request->request->get('email')]);
 
         if (!$user) {
             throw $this->createNotFoundException();
         }
 
         $isValid = $this->get('security.password_encoder')
-            ->isPasswordValid($user, $request->getPassword());
+            ->isPasswordValid($user, $request->request->get('password'));
 
         if (!$isValid) {
             throw new BadCredentialsException();

@@ -5,8 +5,8 @@ security:
         FOS\UserBundle\Model\UserInterface: bcrypt
 
     role_hierarchy:
+        ROLE_CLIENT:      ROLE_USER
         ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: ROLE_ADMIN
 
     providers:
         fos_userbundle:
@@ -21,6 +21,9 @@ security:
             pattern: ^/api/
             anonymous: true
             stateless: true
+            guard:
+                authenticators:
+                    - 'jwt_token_authentificator'
 #
 #        main:
 #            guard:
@@ -37,7 +40,5 @@ security:
 #            anonymous:    true
 
     access_control:
-        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path: ^/api, roles: ROLE_CLIENT }
+        - { path: ^/security, roles: IS_AUTHENTICATED_ANONYMOUSLY }

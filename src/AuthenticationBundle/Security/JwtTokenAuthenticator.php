@@ -91,7 +91,7 @@ class JwtTokenAuthenticator extends AbstractGuardAuthenticator
             throw new CustomUserMessageAuthenticationException('Invalid Token');
         }
 
-        $email = $data['email'];
+        $email = $data['username'];
 
         return $this->entityManager
             ->getRepository(User::class)

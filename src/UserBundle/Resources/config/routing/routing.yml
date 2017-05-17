@@ -1,0 +1,2 @@
+users:
+    resource: '@UserBundle/Controller/Security'

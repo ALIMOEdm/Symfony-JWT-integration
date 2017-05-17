@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-class ApiExceptionSubscriber extends EventSubscriberInterface
+class ApiExceptionSubscriber implements EventSubscriberInterface
 {
     /**
      * @var
@@ -77,7 +77,7 @@ class ApiExceptionSubscriber extends EventSubscriberInterface
     /**
      * @return array
      */
-    public function getSubscribedEvents()
+    public static function getSubscribedEvents()
     {
         return [
             KernelEvents::EXCEPTION => 'onKernelException',

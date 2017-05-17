@@ -1,0 +1,5 @@
+auth:
+    resource: '@AuthenticationBundle/Controller'
+
+users:
+    resource: '@UserBundle/Resources/config/routing/routing.yml'

@@ -4,7 +4,7 @@ services:
         autowire: true
 
     api.response_factory:
-            class: AuthenticationBundle\Api\ResponseFactory
+         class: AuthenticationBundle\Api\ResponseFactory
 
     api_exception_subscriber:
         class: AuthenticationBundle\EventListener\ApiExceptionSubscriber
